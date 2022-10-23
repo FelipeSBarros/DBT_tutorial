@@ -164,3 +164,7 @@ dbt run
 02:45:44  
 02:45:44  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
+
+## Criando modelo
+
+Para criar um novo modelo, basta criar um arquivo `.sql` na pasta `models`. Exemplo: `models/customer.sql`
