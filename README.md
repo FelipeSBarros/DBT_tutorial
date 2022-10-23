@@ -104,3 +104,63 @@ Conjunto de pastas já estruturadas com alguns arquivos `.sql` e .`yml` com algu
 
 ```
 
+### Confirgurando profile.yml
+
+O arquivo `profile.yml` possui todas as informações e parâmetros necessários para o `dbt` poder acessar a base de dados. Para conhecer os parâmetros necessários a cada caso, veja a pagina de cada `adapter`. Para o caso o [`postgres`](https://docs.getdbt.com/reference/warehouse-setups/postgres-setup);
+
+## dbt debug
+
+```
+dbt debug
+
+02:44:16  Running with dbt=1.3.0
+dbt version: 1.3.0
+python version: 3.9.0
+python path: /media/felipe/DATA/Repos/DBT_tutorial/.venv/bin/python
+os info: Linux-5.4.0-131-generic-x86_64-with-glibc2.27
+Using profiles.yml file at /media/felipe/DATA/Repos/DBT_tutorial/jaffle_shop/profiles.yml
+Using dbt_project.yml file at /media/felipe/DATA/Repos/DBT_tutorial/jaffle_shop/dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [OK found and valid]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: localhost
+  port: 5433
+  user: postgres
+  database: dbt_tutorial
+  schema: public
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+All checks passed!
+```
+
+## dbt run
+
+```
+dbt run
+
+02:45:43  Running with dbt=1.3.0
+02:45:43  Partial parse save file not found. Starting full parse.
+02:45:43  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 289 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+02:45:43  
+02:45:44  Concurrency: 1 threads (target='dev')
+02:45:44  
+02:45:44  1 of 2 START sql table model public.my_first_dbt_model ......................... [RUN]
+02:45:44  1 of 2 OK created sql table model public.my_first_dbt_model .................... [SELECT 2 in 0.11s]
+02:45:44  2 of 2 START sql view model public.my_second_dbt_model ......................... [RUN]
+02:45:44  2 of 2 OK created sql view model public.my_second_dbt_model .................... [CREATE VIEW in 0.06s]
+02:45:44  
+02:45:44  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.28 seconds (0.28s).
+02:45:44  
+02:45:44  Completed successfully
+02:45:44  
+02:45:44  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+```
