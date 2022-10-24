@@ -1,15 +1,26 @@
 # Estudando DBT
 
+`dbt` foi desenvolvido para desenvolver o processo de transformação do fluxo "extract-load-transform" para plataformas de dados. `dbt` cria conexão com a plataforma de dados e exeecuta SQL para transformação dos dados.  
+
+* [curso `dbt` fundamentals](https://courses.getdbt.com/courses/fundamentals)  
+> This course will assume you are using dbt Cloud, but the concepts and practices can easily be extended to dbt CLI.
+  * [data engeneer](./data_engineer.md)
+  * [Set up `dbt` cloud](./dbt_cloud.md)
+
+## Alguns conceitos:  
+
 **Adapters:** DBT conecta e executa SQL em base de dados, *warehouse*, *lake*, or *query engine*. Todas essas *coisas*-SQL são agrupadas em um *bucket*, chamado plataforma de dados (*data platforms*). DBT pode ser extendido a qualquer plataforma de dados usando um *adapter*. Esses *adapters* são criados como módulos python que o `dbt` core identifica se estão instalados no sistema.
 
 **CLI:** `dbt` provê uma interface de linha de comando (CLI) para execução do projeto. A CLI também está disponível para o [`dbt Cloud`](https://github.com/data-mie/dbt-cloud-cli). [Panorama geral da CLI](https://docs.getdbt.com/dbt-cli/cli-overview).
 
 
-## Instalação
+# `dbt` CLI
+
+### Instalação
 
 É possível instalar o DBT core e seus complementos por [docker](https://docs.getdbt.com/docs/get-started/docker-installv) ou por [`pip`](https://docs.getdbt.com/docs/get-started/pip-install). Sendo recomendado, para este último, o uso de ambientes virtuais.
 
-### Preparando ambiente de desenvolvimento
+#### Preparando ambiente de desenvolvimento
 
 **Ambiente virtual Python**:
 ```
@@ -28,7 +39,7 @@ docker container ls --all
 # 8c928baa5d8d   postgres                     "docker-entrypoint.s…"   5 months ago    Exited (0) 2 days ago                  postgres
 ```
 
-#### Instalando adapter
+##### Instalando adapter
 
 Neste estudo, vou usar o adaptador [`postgres`](https://docs.getdbt.com/reference/warehouse-setups/postgres-setup):
 ```
